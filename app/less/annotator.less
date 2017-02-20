@@ -57,15 +57,16 @@
   z-index: 1;
 
   label {
-    color: #fff;
-    font-size: @font-size-xsm;
-    font-weight: bold;
-    padding: @spacing-xsm / 2;
-    text-transform: none;
-    white-space: nowrap;
-    border-radius: 0;
-    transition: opacity 100ms linear;
-    pointer-events: none;
+		color: #fff;
+		font-size: @font-size-xsm;
+		font-weight: bold;
+		padding: @spacing-xsm / 2;
+		text-transform: none;
+		white-space: nowrap;
+		border-radius: 0;
+	      opacity: 0;		
+		transition: opacity 100ms linear;
+		pointer-events: none;
   }
 
   arrow-label {
@@ -152,9 +153,9 @@
     &:hover {
       // border: 8px dotted @purple;
       opacity: 1;
-      // label {
-        // background: @purple;
-      // }
+       label {
+	      opacity: 1;		   
+       }
 
       arrow-label {
         &:extend(label);

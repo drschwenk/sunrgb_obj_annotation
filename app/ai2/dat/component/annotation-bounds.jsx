@@ -20,7 +20,7 @@ class AnnotationBounds extends React.Component {
     var zIndex = Math.round(Math.pow(2, 24)/(width * height));
 
     var color_map = new Object();
-    color_map["Header/Topic"] = "#e77423";
+    color_map["Attached"] = "#e77423";
     color_map["Discussion"] = "#286a8e";
     color_map["Definition"] = "#3fb62c";
     color_map["Question"] = "#a92020";
@@ -40,19 +40,7 @@ class AnnotationBounds extends React.Component {
     var color_with_trans = 'rgba('+red+','+green+','+blue+','+opacity+')';
       return color_with_trans;
     }
-    var styles = {
-          base: {
-            left: this.props.x1 + 'px',
-            top: this.props.y1 + 'px',
-            width: width + 'px',
-            height: height + 'px',
-            zIndex: zIndex,
-            backgroundColor: convertHex(get_rgb_value(this.props.category), 0.30),
-            ':hover': {
-              border: "8px dotted " + convertHex(get_rgb_value(AnnotationManager.getCurrentCategory()), 0.8)
-            }
-          }
-      };
+
     var label;
     if (this.props.label) {
       label = <label className="shape-id-label">{this.props.label}</label>;
@@ -76,14 +64,26 @@ class AnnotationBounds extends React.Component {
     if (this.props.className) {
       cssClass += ' ' + this.props.className;
     }
-
+    var styles = {
+          base: {
+            left: this.props.x1 + 'px',
+            top: this.props.y1 + 'px',
+            width: width + 'px',
+            height: height + 'px',
+            zIndex: zIndex,
+            backgroundColor: convertHex(get_rgb_value(this.props.category), 0.30),
+            ':hover': {
+              border: "8px dotted " + convertHex(get_rgb_value(AnnotationManager.getCurrentCategory()), 0.8)
+            }
+          }
+      };
     return (
       <div className={cssClass}
           onClick={this.props.onClick}
           style={[styles.base, styles[this.props.kind]]}>
-        {label}
         {this.props.relationshipLabels}
         {this.props.overlay}
+        {label}
       </div>
     );
   }

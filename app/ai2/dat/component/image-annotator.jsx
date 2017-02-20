@@ -236,4 +236,3 @@ class ImageAnnotator extends React.Component {
 }
 
 module.exports = ImageAnnotator;
-

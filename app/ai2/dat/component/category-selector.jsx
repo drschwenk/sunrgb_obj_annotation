@@ -27,7 +27,7 @@ class CategorySelector extends React.Component {
     }
     render() {
         var header_button = <CategoryButton
-          category={'Header/Topic'}
+          category={'Attached'}
           current_category={this.state.current_category}
           onClickEvent={this.handleClickEvent}
           hotKeyNumber={'1'}

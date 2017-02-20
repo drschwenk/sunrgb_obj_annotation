@@ -33,7 +33,7 @@ class DiagramAnnotationTool extends React.Component {
     }
   }
   set_header(){
-    AnnotationManager.setCurrentCategory('Header/Topic');
+    AnnotationManager.setCurrentCategory('Attached');
     this.refs.cat_selector.setState({current_category: ''});
   }
   set_discussion(){
@@ -107,13 +107,13 @@ class DiagramAnnotationTool extends React.Component {
   render() {
     var url_params = this.getHITParams();
     var view = this.renderView();
-    var sidebar = this.renderCategoryPicker();
+    // var sidebar = this.renderCategoryPicker();
     return (
       <div className="diagram-annotation-tool"
           onDragOver={this.cancelDragOver}>
         <header className="padded flex-row">
           <button onClick={this.saveAndAdvance} className="btn-green">Save and Advance</button>
-          <h1 className=" flex-align-right">Textbook Annotation Tool</h1>
+          <h1 className=" flex-align-right">Object Annotation Tool</h1>
           <a href="https://s3-us-west-2.amazonaws.com/ai2-vision-turk-data/textbook-annotation-test/textbook_hit_instructions/instructions.html"
             target="_blank" className="review_instructions flex-align-right">
             <strong>Read Instructions Here</strong>
@@ -125,7 +125,6 @@ class DiagramAnnotationTool extends React.Component {
         </header>
         <main>
           <Messages />
-          {sidebar}
           {view}
         </main>
           <div className="flex-align-right">

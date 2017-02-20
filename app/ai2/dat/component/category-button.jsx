@@ -17,7 +17,7 @@ class CategoryButton extends React.Component {
 
     render() {
       var color_map = new Object();
-      color_map["Header/Topic"] = "#e77423";
+      color_map["Attached"] = "#e77423";
       color_map["Discussion"] = "#286a8e";
       color_map["Definition"] = "#3fb62c";
       color_map["Question"] = "#a92020";
