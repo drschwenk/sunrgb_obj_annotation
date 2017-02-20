@@ -26,7 +26,11 @@ class AnnotationBounds extends React.Component {
     color_map["Question"] = "#a92020";
     color_map["Answer"] = "#BA70CC";
     color_map["Figure Label"] = "#e7d323";
-    color_map["unlabeled"] = "#8c9296";
+    color_map["unlabeled"] = "#dcdedf";
+
+    var opacity_map = new Object();
+    opacity_map["Unlabeled"] = 0.0;
+    opacity_map["Attached"] = 0.3;
 
     function get_rgb_value(k) {
       return color_map[k];
@@ -71,7 +75,7 @@ class AnnotationBounds extends React.Component {
             width: width + 'px',
             height: height + 'px',
             zIndex: zIndex,
-            backgroundColor: convertHex(get_rgb_value(this.props.category), 0.30),
+            backgroundColor: convertHex(get_rgb_value(this.props.category), opacity_map[this.props.category]),
             ':hover': {
               border: "8px dotted " + convertHex(get_rgb_value(AnnotationManager.getCurrentCategory()), 0.8)
             }
